@@ -5,7 +5,9 @@
   "projects": {
     "pokemon": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {"@schematics/angular:component": {
+        "style": "scss"
+      }},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,7 +27,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },
@@ -94,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "75c0e41d-e74e-4ac8-9ff4-d0868352e292"
   }
 }

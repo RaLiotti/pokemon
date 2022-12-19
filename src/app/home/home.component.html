@@ -1,0 +1,12 @@
+<div class="grid alinhar-grid">
+    <div class="col-3" *ngFor="let pokemon of pokemons">
+        <p-button id=""styleClass="p-button-link" [style]="{'display': 'inline'}">
+            <p-card class="pokemon" header="{{pokemon.name}}" subheader="Card Subheader" styleClass="p-card-shadow" >
+                <ng-template pTemplate="header">
+                    <img alt="{{pokemon.name}}" src="">
+                </ng-template>
+                <p>teste</p>
+            </p-card>
+        </p-button>
+    </div>
+</div>
