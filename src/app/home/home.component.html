@@ -1,12 +1,22 @@
-<div class="grid alinhar-grid">
-    <div class="col-3" *ngFor="let pokemon of pokemons">
-        <p-button id=""styleClass="p-button-link" [style]="{'display': 'inline'}">
-            <p-card class="pokemon" header="{{pokemon.name}}" subheader="Card Subheader" styleClass="p-card-shadow" >
+<div class="grid alinhar-grid" *ngIf="exibirPokemons">
+    <div class="col-3" *ngFor="let pokemon of pokemonsDetalhado">
+        <p-button  styleClass="p-button-link" (click)="detalharPokemon(pokemon.id)">
+            <p-card id="{{pokemon.id}}" class="pokemon" header="{{pokemon.name | uppercase}}" styleClass="p-card-shadow">
+                <div *ngFor="let types of pokemon.types">
+                    <h3>{{types}}</h3>
+                </div>
+               
                 <ng-template pTemplate="header">
-                    <img alt="{{pokemon.name}}" src="">
+                    <img class="img-card" alt="{{pokemon.name}}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemon.id}}.svg">
                 </ng-template>
-                <p>teste</p>
+                <p>{{pokemon.id}}</p>
             </p-card>
         </p-button>
     </div>
 </div>
+
+
+<app-detalhes-pokemon 
+    class="grid alinhar-grid" *ngIf="!exibirPokemons"
+    [detalhar]="pokemonDetalhes">
+</app-detalhes-pokemon>
