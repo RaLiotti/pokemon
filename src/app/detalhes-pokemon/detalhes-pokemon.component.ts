@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IPokemon } from 'src/interface/IPokemon';
 
 @Component({
   selector: 'app-detalhes-pokemon',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./detalhes-pokemon.component.scss']
 })
 export class DetalhesPokemonComponent {
+
+  // @Input() detalhar: IPokemon | undefined;
+
+  @Input() detalhar: IPokemon | undefined;
+
+
+  ngOnInit(): void {
+    console.log(this.detalhar);
+  }
 
 }

@@ -1,1 +1,13 @@
-<p>detalhes-pokemon works!</p>
+
+<div class="grid alinhar-grid">
+    <div class="col-12">
+        <p-card class="pokemon" header="{{detalhar?.name | uppercase}}" subheader="Card Subheader" styleClass="p-card-shadow" >
+            <ng-template pTemplate="header">
+                <img class="img-card" alt="{{detalhar?.name}}" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{detalhar?.id}}.svg">
+            </ng-template>
+            <ng-template pTemplate="footer">
+                Footer content here
+            </ng-template>
+        </p-card>
+    </div>
+</div>

@@ -9,7 +9,7 @@ import { IPokemon } from 'src/interface/IPokemon';
 })
 export class PokeApiService {
 
-  apiUrl = 'https://pokeapi.co/api/v2/pokemon?offset=20&limit=20';
+  apiUrl = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
   
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,42 +18,22 @@ export class PokeApiService {
   }
 
   constructor(
-    private httpCLiente: HttpClient
+    private httpCLiente: HttpClient,
   ) { }
 
-  public getAllPokemons(): Observable<IPokemonApi> {
+  public getAllPokemons() {
+    // debugger
+    return this.httpCLiente.get<any>(this.apiUrl);
 
-    // let pokemonCompleto: IPokemonApi;
-
-      // this.httpCLiente
-      // .get(this.apiUrl)
-      // .subscribe((planos) => {
-      //   const p: any = planos;
-      //   let pokemonCompleto: IPokemon = p.results;
-
-      //   let pokeDetalhes: any = this.getDetalhes(p.results);
-
-      // })
-
-    return this.httpCLiente.get<IPokemonApi>(this.apiUrl);
   }
 
 
-  public getDetalhes(pokemon: any): Array<any>{
-    // debugger;
+  public getDetalhes(urlDetalhe: string){
+    return this.httpCLiente.get<any>(urlDetalhe);
+  }
 
-    let pokemons: Array<any> = [];
-
-    pokemon.forEach((item: any) => {
-      pokemons.push(this.httpCLiente.get<any>(item.url));
-  });
-
-    // debugger;
-
-    // console.log(pokemons);
-
-
-    return pokemons;
+  public buscarEndpoints(urlDetalhe: string){
+    // this.httpCLiente.get(urlDetalhe).forEach()
   }
 
 }
